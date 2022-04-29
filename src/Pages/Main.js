@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { motion, useViewportScroll, useTransform } from 'framer-motion'
+import { motion, useViewportScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
 import ThreeJsCode from '../Components/ThreeJsExample'
@@ -14,8 +14,6 @@ import PortfolioPage from '../images/PortfolioPage.PNG'
 
 import './Main.css'
 
-import Nav from '../Components/Nav'
-
 export default function Main() {
 
   useEffect(() => {
@@ -26,14 +24,12 @@ export default function Main() {
 
   const [navOpen, SetnavOpen] = useState(false)
 
+  const scrollto = (sectionid) => {
+    document.getElementById(sectionid).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
   return (
     <div className='w-full min-h-screen main'>
-
-      {navOpen && <Nav />}
-
-      <button className='fixed top-8 right-8' onClick={() => SetnavOpen(!navOpen)}>
-        menu
-      </button>
 
       <div className='h-screen flex items-center justify-center border-b-2 border-black area'>
 
@@ -175,7 +171,7 @@ export default function Main() {
       </div>
 
 
-      <div className='h-screen w-full flex flex-col'>
+      <div className='h-screen w-full flex flex-col' id='projects'>
 
         <h1 className='text-4xl h-[12%] self-center justify-self-center'> Projects </h1>
 
@@ -192,10 +188,10 @@ export default function Main() {
               }
             }}
           >
-            <SwiperSlide className='h-full w-full'><Projectslide name='My Portfolio' imgsrc={PortfolioPage} description='Built with ReactJS using Tailwindcss, Framer motion and ThreeJS' /></SwiperSlide>
-            <SwiperSlide className='h-full w-full'><Projectslide name='2' /></SwiperSlide>
-            <SwiperSlide className='h-full w-full'><Projectslide name='3' /></SwiperSlide>
-            <SwiperSlide className='h-full w-full'><Projectslide name='4' /></SwiperSlide>
+            <SwiperSlide className='h-full w-full'><Projectslide name='My Portfolio Page' imgsrc={PortfolioPage} description='Built with ReactJS using Tailwindcss, Framer motion, ThreeJS and Swiper' /></SwiperSlide>
+            <SwiperSlide className='h-full w-full'><Projectslide name='' /></SwiperSlide>
+            <SwiperSlide className='h-full w-full'><Projectslide name='' /></SwiperSlide>
+            <SwiperSlide className='h-full w-full'><Projectslide name='' /></SwiperSlide>
           </Swiper>
 
         </div>
@@ -203,8 +199,36 @@ export default function Main() {
 
       </div>
 
+      <button className='fixed top-8 right-8' onClick={() => SetnavOpen(!navOpen)}>
+        <motion.div className='w-11 h-11'
+        animate={navOpen ? 'open' : 'closed'}
+        >
+          <motion.div className='w-11 h-[8px] bg-black mb-[4px] rounded-md' id='menulinerotate1'
+          variants={{
+            open: { rotate:45 },
+            closed: { rotate:0 } 
+          }}
+          ></motion.div>
+          <motion.div className='w-11 h-[8px] bg-black mb-[4px] rounded-md' id='menuline'
+          variants={{
+            open: { opacity:0},
+            closed: { opacity:1},
+          }}
+          transition={{duration:0.2}}
+          ></motion.div>
+          <motion.div className='w-11 h-[8px] bg-black mb-[4px] rounded-md' id='menulinerotate2'
+          variants={{
+            open: { rotate:-45, y:-24 },
+            closed: { rotate:0, y:0 }
+          }}
+          ></motion.div>
+        </motion.div>
+      </button>
 
-    
+
+      <AnimatePresence>
+        {navOpen && <Nav />}
+      </AnimatePresence>
 
     </div>
   )
@@ -223,5 +247,26 @@ export default function Main() {
     )
   }
 
+function Nav(){
+  return(
+    <>
 
+    <motion.div className='fixed right-0 top-16 h-16 w-auto flex flex-col text-white menu'
+            initial={{ opacity: 0, x:200 }}
+            animate={{ 
+              opacity: 1,
+              x:0,
+             }}
+            exit={{  
+              opacity: 0,
+              x:200
+             }}
+    >
+        <span onClick={() => scrollto('about_me')} className='menuitem w-20 py-2'> About Me </span>
+        <span onClick={() => scrollto('projects')} className='menuitem w-20 py-2'> Projects </span>
+    </motion.div>
+  </>
+  )
+}
+  
 }
