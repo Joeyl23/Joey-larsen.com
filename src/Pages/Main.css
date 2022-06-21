@@ -38,6 +38,14 @@
     border-top: 100px solid black;
 }
 
+.smallarrow{
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 20px solid rgb(30 41 59);
+}
+
 .tooltip .arrow{
     width: 20px;
     height: 20px;

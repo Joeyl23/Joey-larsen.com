@@ -11,6 +11,7 @@ import ThreeJsCode from '../Components/ThreeJsExample'
 import framerIcon from '../images/framerIcon.svg'
 
 import PortfolioPage from '../images/PortfolioPage.PNG'
+import RPSPage from '../images/RPSPage.PNG'
 
 import './Main.css'
 
@@ -39,8 +40,8 @@ export default function Main() {
           transition:{ type: "spring", stiffness: 50, bounce:0.3, duration:5},
           }}
           style={{
-          x:useTransform(scrollYProgress, [0, 0.5], [0, -300]),
-          rotate:useTransform(scrollYProgress, [0, 0.5], [0, 90]),
+          x:useTransform(scrollYProgress, [0, 0.35], [0, -600]),
+          rotate:useTransform(scrollYProgress, [0, 0.35], [0, 90]),
           }}
           >
           
@@ -107,6 +108,12 @@ export default function Main() {
           </motion.div>
             <div></div>
           </motion.div>
+
+
+
+          <div className='flex flex-col justify-center items-center absolute bottom-4 right-24'>
+          <Downarrow />
+          </div>
       </div>
 
 
@@ -116,8 +123,8 @@ export default function Main() {
 
             <motion.h1 className='text-4xl'
               style={{
-                x:useTransform(scrollYProgress, [0.1,0.4,0.5, 0.9], [-300,0,0,-300]),
-                rotate:useTransform(scrollYProgress, [0.1,0.4,0.5, 0.9], [90,0,0,-90]),
+                x:useTransform(scrollYProgress, [0,0.3,0.35, 0.8], [-300,0,0,-300]),
+                rotate:useTransform(scrollYProgress, [0,0.3,0.35, 0.8], [90,0,0,-90]),
               }}>
               ABOUT ME
             </motion.h1>
@@ -171,7 +178,7 @@ export default function Main() {
       </div>
 
 
-      <div className='h-screen w-full flex flex-col' id='projects'>
+      <div className='h-screen w-full flex flex-col border-b-2 border-black' id='projects'>
 
         <h1 className='text-4xl h-[12%] self-center justify-self-center'> Projects </h1>
 
@@ -196,10 +203,43 @@ export default function Main() {
 
         </div>
 
+        <div className='flex flex-col w-full h-[18%] justify-center items-center'>
+          <Downarrow />
+        </div>
+
 
       </div>
 
-      <button className='fixed top-8 right-8' onClick={() => SetnavOpen(!navOpen)}>
+
+      <div className='h-screen w-full flex flex-col' id='projects'>
+
+        <h1 className='text-4xl h-[12%] self-center justify-self-center'> Small Projects </h1>
+
+        <div className='w-full h-[70%] px-6'>
+        <Swiper
+            className='w-full h-full'
+            spaceBetween={50}
+            onSlideChange={() => console.log('slide change')}
+            onSwiper={(swiper) => console.log(swiper)}
+            breakpoints = {{
+              slidesPerView:1,
+              768: {
+                slidesPerView: 3
+              }
+            }}
+          >
+            <SwiperSlide className='h-full w-full'><Projectslide name='Rock paper scissors game' imgsrc={RPSPage} description='Built with ReactJS using Tailwindcss and Framer motion' /></SwiperSlide>
+            <SwiperSlide className='h-full w-full'><Projectslide name='' /></SwiperSlide>
+            <SwiperSlide className='h-full w-full'><Projectslide name='' /></SwiperSlide>
+            <SwiperSlide className='h-full w-full'><Projectslide name='' /></SwiperSlide>
+          </Swiper>
+
+        </div>
+
+
+      </div>
+
+      <button className='fixed top-8 right-8 z-10' onClick={() => SetnavOpen(!navOpen)}>
         <motion.div className='w-11 h-11'
         animate={navOpen ? 'open' : 'closed'}
         >
@@ -235,7 +275,7 @@ export default function Main() {
 
   function Projectslide(props) {
     return(
-    <div className='h-full w-full bg-gray-200 border border-black flex flex-col items-center'> 
+    <div className='h-full w-full bg-gray-200 border border-black flex flex-col items-center z-10'> 
     
     <h1 className='text-center py-4'>{props.name}</h1>
 
@@ -251,7 +291,7 @@ function Nav(){
   return(
     <>
 
-    <motion.div className='fixed right-0 top-16 h-16 w-auto flex flex-col text-white menu'
+    <motion.div className='fixed right-0 top-16 h-16 w-auto flex flex-col text-white menu z-20'
             initial={{ opacity: 0, x:200 }}
             animate={{ 
               opacity: 1,
@@ -262,11 +302,50 @@ function Nav(){
               x:200
              }}
     >
-        <span onClick={() => scrollto('about_me')} className='menuitem w-20 py-2'> About Me </span>
-        <span onClick={() => scrollto('projects')} className='menuitem w-20 py-2'> Projects </span>
+        <button onClick={() => scrollto('about_me')} className='menuitem w-20 py-2'> About Me </button>
+        <button onClick={() => scrollto('projects')} className='menuitem w-20 py-2'> Projects </button>
     </motion.div>
   </>
   )
+}
+
+
+function Downarrow(){
+  return(
+<>
+<motion.div
+                      animate={{
+                        y:[0,10],
+                        transition:{
+                          delay:1,
+                          yoyo:Infinity,
+                          duration:1
+                        }
+                      }}
+              className='rounded-md w-2 h-4 bg-slate-800 my-2'>
+            </motion.div>
+            <motion.div 
+                                  animate={{
+                                    y:[0,10],
+                                    transition:{
+                                      delay:1.1,
+                                      yoyo:Infinity,
+                                      duration:1
+                                    }
+                                  }}
+            className='rounded-md w-2 h-4 bg-slate-800 mb-2'></motion.div>
+            <motion.div 
+                                  animate={{
+                                    y:[0,10],
+                                    transition:{
+                                      delay:1.2,
+                                      yoyo:Infinity,
+                                      duration:1
+                                    }
+                                  }}
+            className='smallarrow rounded-md'></motion.div>
+</>
+  );
 }
   
 }
