@@ -5,13 +5,17 @@ import 'swiper/css';
 import { motion, useViewportScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
+import Nav from '../Components/Nav';
 import ThreeJsCode from '../Components/ThreeJsExample'
+import Downarrow from '../Components/Downarrow';
+import Projectslide from '../Components/Projectslide';
 
 
 import framerIcon from '../images/framerIcon.svg'
 
 import PortfolioPage from '../images/PortfolioPage.PNG'
 import RPSPage from '../images/RPSPage.PNG'
+import Islands from '../images/islands.PNG'
 
 import './Main.css'
 
@@ -24,10 +28,6 @@ export default function Main() {
   const { scrollYProgress } = useViewportScroll()
 
   const [navOpen, SetnavOpen] = useState(false)
-
-  const scrollto = (sectionid) => {
-    document.getElementById(sectionid).scrollIntoView({behavior:'smooth', block:'start'});
-  }
 
   return (
     <div className='w-full min-h-screen main'>
@@ -228,8 +228,8 @@ export default function Main() {
               }
             }}
           >
-            <SwiperSlide className='h-full w-full'><Projectslide name='Rock paper scissors game' imgsrc={RPSPage} description='Built with ReactJS using Tailwindcss and Framer motion' /></SwiperSlide>
-            <SwiperSlide className='h-full w-full'><Projectslide name='' /></SwiperSlide>
+            <SwiperSlide className='h-full w-full'><Projectslide name='islands observer game' url='https://joeysislands.netlify.app/' imgsrc={Islands} description='Built with ReactJS using ThreeJS and blender' /></SwiperSlide>
+            <SwiperSlide className='h-full w-full'><Projectslide name='Rock paper scissors game' url='https://joey-rps.netlify.app/' imgsrc={RPSPage} description='Built with ReactJS using Tailwindcss and Framer motion' /></SwiperSlide>
             <SwiperSlide className='h-full w-full'><Projectslide name='' /></SwiperSlide>
             <SwiperSlide className='h-full w-full'><Projectslide name='' /></SwiperSlide>
           </Swiper>
@@ -272,80 +272,5 @@ export default function Main() {
 
     </div>
   )
-
-  function Projectslide(props) {
-    return(
-    <div className='h-full w-full bg-gray-200 border border-black flex flex-col items-center z-10'> 
-    
-    <h1 className='text-center py-4'>{props.name}</h1>
-
-    <img className='w-auto h-3/4 border-2 border-black' src={props.imgsrc} alt='img'></img>
-
-    <h1 className='p-4'>{props.description}</h1>
-
-    </div>
-    )
-  }
-
-function Nav(){
-  return(
-    <>
-
-    <motion.div className='fixed right-0 top-16 h-16 w-auto flex flex-col text-white menu z-20'
-            initial={{ opacity: 0, x:200 }}
-            animate={{ 
-              opacity: 1,
-              x:0,
-             }}
-            exit={{  
-              opacity: 0,
-              x:200
-             }}
-    >
-        <button onClick={() => scrollto('about_me')} className='menuitem w-20 py-2'> About Me </button>
-        <button onClick={() => scrollto('projects')} className='menuitem w-20 py-2'> Projects </button>
-    </motion.div>
-  </>
-  )
-}
-
-
-function Downarrow(){
-  return(
-<>
-<motion.div
-                      animate={{
-                        y:[0,10],
-                        transition:{
-                          delay:1,
-                          yoyo:Infinity,
-                          duration:1
-                        }
-                      }}
-              className='rounded-md w-2 h-4 bg-slate-800 my-2'>
-            </motion.div>
-            <motion.div 
-                                  animate={{
-                                    y:[0,10],
-                                    transition:{
-                                      delay:1.1,
-                                      yoyo:Infinity,
-                                      duration:1
-                                    }
-                                  }}
-            className='rounded-md w-2 h-4 bg-slate-800 mb-2'></motion.div>
-            <motion.div 
-                                  animate={{
-                                    y:[0,10],
-                                    transition:{
-                                      delay:1.2,
-                                      yoyo:Infinity,
-                                      duration:1
-                                    }
-                                  }}
-            className='smallarrow rounded-md'></motion.div>
-</>
-  );
-}
   
 }
