@@ -17,6 +17,9 @@ import PortfolioPage from '../images/PortfolioPage.PNG'
 import RPSPage from '../images/RPSPage.PNG'
 import Islands from '../images/islands.PNG'
 
+import Github from '../images/icons8-github-60.png'
+import Linkedin from '../images/icons8-linkedin-circled-60.png'
+
 import './Main.css'
 
 export default function Main() {
@@ -32,7 +35,7 @@ export default function Main() {
   return (
     <div className='w-full min-h-screen main'>
 
-      <div className='h-screen flex items-center justify-center border-b-2 border-black area'>
+      <div className='h-screen flex flex-col items-center justify-center border-b-2 border-black area'>
 
           <motion.div id='MainText'
           initial={{x:-300, opacity:0.1, rotate:-90}}
@@ -48,6 +51,26 @@ export default function Main() {
             <div className='text-center text-4xl md:text-6xl border-b-2 px-6 border-black'><h1>Joey <br></br> Larsen</h1></div>
             <div className='text-lg md:text-2xl text-center'><p>a developer <br></br> based in austria</p></div>
           </motion.div>
+
+          <div className='flex flex-row'>
+
+            <motion.a
+            initial={{
+              scale:0
+            }}
+            animate={{scale:1}}
+            transition={{duration:0.8,delay:0,type:'spring',bounce:0.7}}
+            href='https://github.com/Joeyl23' target='_blank' rel='noreferrer' alt='icons8 github icon'><motion.img src={Github}></motion.img></motion.a>
+
+            <motion.a 
+            initial={{
+              scale:0
+            }}
+            animate={{scale:1}}
+            transition={{duration:0.8,delay:0.2,type:'spring',bounce:0.7}}
+            href='https://www.linkedin.com/in/joey-larsen-680308186/' target='_blank' rel='noreferrer' alt='icons8 linkedin icon'><motion.img src={Linkedin}></motion.img></motion.a>
+
+          </div>
         
 
         <motion.div className='absolute bottom-20 left-20'
