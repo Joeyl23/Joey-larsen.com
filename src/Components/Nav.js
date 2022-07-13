@@ -1,9 +1,13 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-export default function Nav() {
+export default function Nav({setNavOpen}) {
 
     const scrollto = (sectionid) => {
+      setTimeout(()=>{
+        setNavOpen(false);
+      },1500)
+        
         document.getElementById(sectionid).scrollIntoView({behavior:'smooth', block:'start'});
       }
     return(

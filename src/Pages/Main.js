@@ -32,6 +32,7 @@ export default function Main() {
 
   const [navOpen, SetnavOpen] = useState(false)
 
+
   return (
     <div className='w-full min-h-screen main'>
 
@@ -290,10 +291,15 @@ export default function Main() {
 
 
       <AnimatePresence>
-        {navOpen && <Nav />}
+        {navOpen && <Nav setNavOpen={childSetNavOpen} />}
       </AnimatePresence>
 
     </div>
   )
+
+
+  function childSetNavOpen(value){
+    SetnavOpen(value);
+  }
   
 }
