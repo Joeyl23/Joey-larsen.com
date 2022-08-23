@@ -14,6 +14,7 @@ import Projectslide from '../Components/Projectslide';
 import framerIcon from '../images/framerIcon.svg'
 
 import PortfolioPage from '../images/PortfolioPage.PNG'
+import kaisenPage from '../images/kaisenPage.PNG'
 import RPSPage from '../images/RPSPage.PNG'
 import Islands from '../images/islands.PNG'
 
@@ -220,9 +221,7 @@ export default function Main() {
             }}
           >
             <SwiperSlide className='h-full w-full'><Projectslide name='My Portfolio Page' imgsrc={PortfolioPage} description='Built with ReactJS using Tailwindcss, Framer motion, ThreeJS and Swiper' /></SwiperSlide>
-            <SwiperSlide className='h-full w-full'><Projectslide name='' /></SwiperSlide>
-            <SwiperSlide className='h-full w-full'><Projectslide name='' /></SwiperSlide>
-            <SwiperSlide className='h-full w-full'><Projectslide name='' /></SwiperSlide>
+            <SwiperSlide className='h-full w-full'><Projectslide name='My Portfolio Page' url='https://kaisen-shop.com/' imgsrc={kaisenPage} description='ecommerce Website made with React, Nodejs, Express and MongoDB (WIP)' /></SwiperSlide>
           </Swiper>
 
         </div>
@@ -254,8 +253,6 @@ export default function Main() {
           >
             <SwiperSlide className='h-full w-full'><Projectslide name='islands observer game' url='https://joeysislands.netlify.app/' imgsrc={Islands} description='Built with ReactJS using ThreeJS and blender' /></SwiperSlide>
             <SwiperSlide className='h-full w-full'><Projectslide name='Rock paper scissors game' url='https://joey-rps.netlify.app/' imgsrc={RPSPage} description='Built with ReactJS using Tailwindcss and Framer motion' /></SwiperSlide>
-            <SwiperSlide className='h-full w-full'><Projectslide name='' /></SwiperSlide>
-            <SwiperSlide className='h-full w-full'><Projectslide name='' /></SwiperSlide>
           </Swiper>
 
         </div>
