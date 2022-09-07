@@ -7,7 +7,7 @@ export default function Projectslide(props) {
         
         <h1 className='text-center py-4'>{props.name}</h1>
     
-        <img className='w-auto h-3/4 border-2 border-black' src={props.imgsrc} alt='img'></img>
+        <img className='max-w-[90%] w-auto h-3/4 border-2 border-black' src={props.imgsrc} alt='img'></img>
     
         <h1 className='p-4'>{props.description}</h1>
     

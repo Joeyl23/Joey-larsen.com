@@ -132,7 +132,7 @@ export default function Main() {
 
           </motion.div>
             <div></div>
-          </motion.div>
+          </motion.div>SwiperSlide
 
 
 
@@ -211,8 +211,6 @@ export default function Main() {
         <Swiper
             className='w-full h-full'
             spaceBetween={50}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
             breakpoints = {{
               slidesPerView:1,
               768: {
@@ -221,7 +219,7 @@ export default function Main() {
             }}
           >
             <SwiperSlide className='h-full w-full'><Projectslide name='My Portfolio Page' imgsrc={PortfolioPage} description='Built with ReactJS using Tailwindcss, Framer motion, ThreeJS and Swiper' /></SwiperSlide>
-            <SwiperSlide className='h-full w-full'><Projectslide name='My Portfolio Page' url='https://kaisen-shop.com/' imgsrc={kaisenPage} description='ecommerce Website made with React, Nodejs, Express and MongoDB (WIP)' /></SwiperSlide>
+            <SwiperSlide className='h-full w-full'><Projectslide name='Kaisen Mechanical keyboards' url='https://kaisen-shop.com/' imgsrc={kaisenPage} description='ecommerce Website made with React, Nodejs, Express and MongoDB (WIP)' /></SwiperSlide>
           </Swiper>
 
         </div>
@@ -238,12 +236,10 @@ export default function Main() {
 
         <h1 className='text-4xl h-[12%] self-center justify-self-center'> Small Projects </h1>
 
-        <div className='w-full h-[70%] px-6'>
+        <div className='w-full max-h-[88%] px-6'>
         <Swiper
             className='w-full h-full'
             spaceBetween={50}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
             breakpoints = {{
               slidesPerView:1,
               768: {
@@ -251,7 +247,7 @@ export default function Main() {
               }
             }}
           >
-            <SwiperSlide className='h-full w-full'><Projectslide name='islands observer game' url='https://joeysislands.netlify.app/' imgsrc={Islands} description='Built with ReactJS using ThreeJS and blender' /></SwiperSlide>
+            <SwiperSlide className='h-full w-full'><Projectslide name='islands observer game' url='https://joeysislands.netlify.app/' imgsrc={Islands} description='Built with ReactJS using ThreeJS, react three Fiber, react drei and blender' /></SwiperSlide>
             <SwiperSlide className='h-full w-full'><Projectslide name='Rock paper scissors game' url='https://joey-rps.netlify.app/' imgsrc={RPSPage} description='Built with ReactJS using Tailwindcss and Framer motion' /></SwiperSlide>
           </Swiper>
 
