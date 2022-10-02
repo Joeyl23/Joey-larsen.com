@@ -31,6 +31,10 @@ export default function Main() {
 
   const { scrollYProgress } = useViewportScroll()
 
+  useEffect(() =>{
+    console.log('scrolling')
+  },[scrollYProgress])
+
   const [navOpen, SetnavOpen] = useState(false)
 
 
@@ -132,7 +136,7 @@ export default function Main() {
 
           </motion.div>
             <div></div>
-          </motion.div>SwiperSlide
+          </motion.div>
 
 
 
