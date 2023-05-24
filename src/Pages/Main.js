@@ -15,7 +15,6 @@ import framerIcon from '../images/framerIcon.svg'
 
 import PortfolioPage from '../images/PortfolioPage.PNG'
 import kaisenPage from '../images/kaisenPage.PNG'
-import RPSPage from '../images/RPSPage.PNG'
 import Islands from '../images/islands.PNG'
 
 import Github from '../images/icons8-github-60.png'
@@ -66,7 +65,10 @@ export default function Main() {
             }}
             animate={{scale:1}}
             transition={{duration:0.8,delay:0,type:'spring',bounce:0.7}}
-            href='https://github.com/Joeyl23' target='_blank' rel='noreferrer' alt='icons8 github icon'><motion.img src={Github}></motion.img></motion.a>
+            href='https://github.com/Joeyl23' target='_blank' rel='noreferrer' alt='icons8 github icon'>  
+              <motion.img whileHover={{scale:1.1}} transition={{type:'spring', stiffness:1000}} src={Github}></motion.img>
+              
+            </motion.a>
 
             <motion.a 
             initial={{
@@ -74,7 +76,10 @@ export default function Main() {
             }}
             animate={{scale:1}}
             transition={{duration:0.8,delay:0.2,type:'spring',bounce:0.7}}
-            href='https://www.linkedin.com/in/joey-larsen-680308186/' target='_blank' rel='noreferrer' alt='icons8 linkedin icon'><motion.img src={Linkedin}></motion.img></motion.a>
+            href='https://www.linkedin.com/in/joey-larsen-680308186/' target='_blank' rel='noreferrer' alt='icons8 linkedin icon'>  
+              <motion.img whileHover={{scale:1.1}} transition={{type:'spring', stiffness:1000}} src={Linkedin}></motion.img>
+              
+            </motion.a>
 
           </div>
         
@@ -252,7 +257,6 @@ export default function Main() {
             }}
           >
             <SwiperSlide className='h-full w-full'><Projectslide name='islands observer game' url='https://joeysislands.netlify.app/' imgsrc={Islands} description='Built with ReactJS using ThreeJS, react three Fiber, react drei and blender' /></SwiperSlide>
-            <SwiperSlide className='h-full w-full'><Projectslide name='Rock paper scissors game' url='https://joey-rps.netlify.app/' imgsrc={RPSPage} description='Built with ReactJS using Tailwindcss and Framer motion' /></SwiperSlide>
           </Swiper>
 
         </div>
