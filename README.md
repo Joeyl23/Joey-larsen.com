@@ -1,2 +1,4 @@
-this is the personal Portfolio Page of Joey Larsen.
+Hello, my name is Joey.
+
+I am an IT Manager and a Webdeveloper.
 
