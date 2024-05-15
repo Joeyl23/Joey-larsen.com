@@ -1,3 +1,6 @@
-this is the personal Portfolio Page of Joey Larsen.
+Hello, my name is Joey.
 
-Libraries include: Three, Framer motion, Tailwindcss, swiperjs, react-router.
+I am an IT Manager and a Webdeveloper.
+
+This Is my personal Portfolio Page.
+built using native-React, Tailwindcss, Framer Motion, ThreeJS and swiperJS
