@@ -14,7 +14,6 @@ import Projectslide from '../Components/Projectslide';
 import framerIcon from '../images/framerIcon.svg'
 
 import PortfolioPage from '../images/PortfolioPage.PNG'
-import kaisenPage from '../images/kaisenPage.PNG'
 import Islands from '../images/islands.PNG'
 
 import Github from '../images/icons8-github-60.png'
@@ -228,7 +227,6 @@ export default function Main() {
             }}
           >
             <SwiperSlide className='h-full w-full'><Projectslide name='My Portfolio Page' imgsrc={PortfolioPage} description='Built with ReactJS using Tailwindcss, Framer motion, ThreeJS and Swiper' /></SwiperSlide>
-            <SwiperSlide className='h-full w-full'><Projectslide name='Kaisen Mechanical keyboards' url='https://kaisen-shop.com/' imgsrc={kaisenPage} description='ecommerce Website made with React, Nodejs, Express and MongoDB (WIP)' /></SwiperSlide>
           </Swiper>
 
         </div>
